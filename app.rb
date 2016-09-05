@@ -1,4 +1,7 @@
 require 'sinatra'
+require 'sinatra/activerecord'
+require './config/environments'
+require './models/all'
 
 set :bind, '0.0.0.0'
 get '/' do
