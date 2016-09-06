@@ -1,0 +1,6 @@
+<h3>Questions</h3>
+<form action="/" method="POST">
+  <% @questions.each do |q| %>
+  <%= q.text %>
+  <% end %>
+</form>

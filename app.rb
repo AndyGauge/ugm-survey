@@ -5,18 +5,27 @@ require './models/all'
 
 set :bind, '0.0.0.0'
 get '/' do
-  'TODO: generate survey'
+  @questions = Question.all
+  erb :index
 end
 post '/' do
   'TODO: email survey, thank user'
 end
+get '/login' do
+  erb :login
+end
 get '/admin' do
-  'TODO: generate admin login'
+  erb :login
 end
 post '/admin' do
-  'TODO: check admin login, display admin form'
-end
-put '/admin' do
   'TODO: update admin settings'
+end
+post '/login' do
+  if Login.attempt(params[:username], params[:password]) || Login.count == 0
+    @questions = Question.all
+    erb :admin
+  else
+    erb :login
+  end
 end
 

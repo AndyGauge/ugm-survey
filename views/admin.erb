@@ -1,0 +1,16 @@
+<h3>Admin</h3>
+Feel free to edit questions:
+<form action="admin" method="post">
+  <input type="hidden" name="_method" value="put" />
+<% @questions.each do |q| %>
+  <div>
+    <input type="text" name="question[<%= q.id %>]" value="<%= q.text %>">
+  </div>
+<% end %>
+  <div>
+    <input type="text" name="question[]">
+  </div>
+  <div>
+    <input type="submit">
+  </div>
+</form>

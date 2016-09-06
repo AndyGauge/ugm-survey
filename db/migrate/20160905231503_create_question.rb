@@ -1,6 +1,6 @@
 class CreateQuestion < ActiveRecord::Migration
   def change
-    create_table :question do |t|
+    create_table :questions do |t|
       t.string :text
     end
   end
