@@ -1,15 +1,29 @@
 <h3>Admin</h3>
 Feel free to edit questions:
-<form action="admin" method="post">
-  <input type="hidden" name="_method" value="put" />
+<form action="/admin/question" method="post">
 <% @questions.each do |q| %>
   <div>
-    <input type="text" name="question[<%= q.id %>]" value="<%= q.text %>">
+    <input type="text" name="question[question_<%= q.id %>][text]" value="<%= q.text %>">
   </div>
 <% end %>
   <div>
-    <input type="text" name="question[]">
+    <input type="text" name="question[new][text]">
   </div>
+  <div>
+    <input type="submit">
+  </div>
+</form>
+<form action="/admin/login" method="post">
+<% @logins.each do |l| %>
+  <div>
+    <input type="text" name="login[login_<%= l.id %>][user]" value="<%= l.user %>">
+    <input type="password" name="login[login_<%= l.id %>][password_digest]" value="<%= l.password_digest %>">
+  <div>
+<% end %>
+  <div>
+    <input type="text" name="login[new][user]" >
+    <input type="password" name="login[new][password_digest]">
+  <div>
   <div>
     <input type="submit">
   </div>
