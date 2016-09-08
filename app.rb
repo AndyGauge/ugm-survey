@@ -4,6 +4,10 @@ require './config/environments'
 require './models/all'
 
 set :bind, '0.0.0.0'
+before do
+  @clients = Person.client
+  @staff   = Person.staff
+end
 get '/' do
   @questions = Question.all
   erb :index

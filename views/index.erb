@@ -1,5 +1,12 @@
-<h3>Questions</h3>
+<script>
+  localStorage.setItem("clients", <%= @clients.pluck(:name) %>)
+  localStorage.setItem("staff"  , <%= @staff.pluck(:name)   %>)
+</script>
+
 <form action="/" method="POST">
+<h3>Who is filling out this survey?</h3>
+<input type="text" name="staff" id="staff_name">
+<h3>Questions</h3>
   <% @questions.each do |q| %>
   <%= q.text %>
   <% end %>
