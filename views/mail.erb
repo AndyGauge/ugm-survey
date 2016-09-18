@@ -1,0 +1,8 @@
+<%= @survey.staff.name %>'s survey of <%= @survey.client.name %>
+<p>
+<% @survey.answers.each do |answer| %>
+  <%= answer.question.text %>
+  <%= answer.value %>
+  <%= answer.comments %>
+<% end %>
+</p>

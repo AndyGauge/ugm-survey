@@ -13,7 +13,11 @@ get '/' do
   erb :index
 end
 post '/' do
-  'TODO: email survey, thank user'
+  if (Survey.process params)
+    'TODO: email survey, thank user'
+  else
+    erb :index
+  end
 end
 get '/login' do
   erb :login

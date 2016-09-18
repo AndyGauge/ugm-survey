@@ -6,8 +6,13 @@
 <form action="/" method="POST">
 <h3>Who is filling out this survey?</h3>
 <input type="text" name="staff" id="staff_name">
-<h3>Questions</h3>
-  <% @questions.each do |q| %>
-  <%= q.text %>
-  <% end %>
+<h3>Who is the survey regarding?</h3>
+<input type="text" name="client" id="client_name">
+
+<% @questions.each do |q| %>
+  <h3><%= q.text %></h3>
+  <input type="number" name="question[<%= q.slug %>][value]" min="1" max="5">
+  <p>Feedback</p><input type="textarea" name="question[<%= q.slug %>][comments]">
+<% end %>
+<input type="submit">
 </form>
